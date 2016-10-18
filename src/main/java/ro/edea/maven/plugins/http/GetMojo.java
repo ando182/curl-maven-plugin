@@ -13,6 +13,6 @@ public class GetMojo extends AbstractHttpMojo {
 
     @Override
     protected HttpRequestBase createHttpRequest() {
-        return new HttpGet();
+        return new HttpGet(uri);
     }
 }

@@ -6,5 +6,9 @@ package ro.edea.maven.plugins.http.common;
 public interface Constants {
 
     String SKIP = "http.skip";
+    
+    String URL = "http.url";
+    
+    String OUTPUT_FILE = "http.output.file";
 
 }

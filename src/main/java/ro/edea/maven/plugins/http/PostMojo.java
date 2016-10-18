@@ -12,7 +12,7 @@ import org.apache.maven.plugins.annotations.Mojo;
 public class PostMojo extends AbstractHttpMojo {
 
     protected HttpRequestBase createHttpRequest() {
-        return new HttpPost();
+        return new HttpPost(uri);
     }
 
 }
