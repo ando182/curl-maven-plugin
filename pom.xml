@@ -8,7 +8,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
     <name>curl-maven-plugin</name>
-    <description>A maven plugin for curl</description>
+    <description>A maven plugin for http requests</description>
     <url>https://github.com/ando182/curl-maven-plugin</url>
 
     <properties>
