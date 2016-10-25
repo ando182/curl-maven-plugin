@@ -15,7 +15,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 import ro.edea.maven.plugins.http.common.Constants;
 import ro.edea.maven.plugins.http.model.BasicAuthentication;
 import ro.edea.maven.plugins.http.model.Cookie;
-import ro.edea.maven.plugins.http.model.FormField;
+import ro.edea.maven.plugins.http.model.Field;
 import ro.edea.maven.plugins.http.model.Header;
 
 import java.util.List;
@@ -29,7 +29,7 @@ public class CurlMojo extends AbstractMojo {
     @Parameter
     private List<Header> headers;
     @Parameter
-    private List<FormField> form;
+    private List<Field> form;
     @Parameter
     private String userAgent;
     @Parameter

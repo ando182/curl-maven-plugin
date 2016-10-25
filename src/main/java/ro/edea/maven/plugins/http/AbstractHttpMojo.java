@@ -7,9 +7,11 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.collections4.Closure;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.IteratorUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpMessage;
+import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.CookieStore;
 import org.apache.http.client.methods.HttpRequestBase;
@@ -24,6 +26,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 import ro.edea.maven.plugins.http.common.Constants;
 import ro.edea.maven.plugins.http.model.Cookie;
+import ro.edea.maven.plugins.http.model.Field;
 import ro.edea.maven.plugins.http.model.Header;
 
 public abstract class AbstractHttpMojo extends AbstractMojo {
@@ -84,7 +87,7 @@ public abstract class AbstractHttpMojo extends AbstractMojo {
         	IOUtils.closeQuietly(httpclient);
 		}
     }
-
+    
     protected abstract HttpRequestBase createHttpRequest();
     
     protected CloseableHttpClient getHttpClient() {
@@ -108,6 +111,9 @@ public abstract class AbstractHttpMojo extends AbstractMojo {
     }
 
     protected void addCookies(final CookieStore cookieStore, Collection<Cookie> cookies) {
+    	if (CollectionUtils.isEmpty(cookies)) {
+    		return;
+    	}
         IteratorUtils.forEach(cookies.iterator(), new Closure<Cookie>() {
             @Override
             public void execute(Cookie header) {
